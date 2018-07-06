@@ -17,9 +17,16 @@ export default class SearchBar extends Component {
     })
   }
 
+  onFormSubmit(e) {
+    e.preventDefault();
+  }
+
   render() {
     return (
-      <form className="input-group">
+      <form
+        onSubmit={this.onFormSubmit}
+        className="input-group"
+      >
         <input
           onChange={this.onInputChange}
           value={this.state.term}
