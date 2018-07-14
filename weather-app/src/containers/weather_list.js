@@ -4,6 +4,7 @@ import Chart from '../components/chart';
 
 class WeatherList extends Component {
   renderWeather(cityData) {
+    console.log(cityData.city.name);
     const name = cityData.city.name;
     const temps = cityData.list.map(weather => weather.main.temp);
 
