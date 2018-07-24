@@ -16,6 +16,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Route path="/" component={PostsIndex} />
+        <Route path="/posts/new" component={PostsNew} />
       </div>
     </BrowserRouter>
   </Provider>

@@ -1,6 +1,6 @@
-import React, { Component } from '../../../../../../../Users/anatolijkirzo/Library/Caches/typescript/2.9/node_modules/@types/react';
-import _ from '../../../../../../../Users/anatolijkirzo/Library/Caches/typescript/2.9/node_modules/@types/lodash';
-import { connect } from '../../../../../../../Users/anatolijkirzo/Library/Caches/typescript/2.9/node_modules/@types/react-redux';
+import React, { Component } from 'react';
+import _ from 'lodash';
+import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 
 class PostsIndex extends Component {
