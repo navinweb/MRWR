@@ -3,9 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 
 class PostsNew extends Component {
   renderField(field) {
-    return(
+    return (
       <div className="form-group">
-      <label>{field.label}</label>
+        <label>{field.label}</label>
         <input
           type="text"
           className="form-control"
@@ -24,8 +24,8 @@ class PostsNew extends Component {
           component={this.renderField}
         />
         <Field
-          name="tags"
-          label="Tags"
+          name="categories"
+          label="Categories"
           component={this.renderField}
         />
         <Field
@@ -38,6 +38,25 @@ class PostsNew extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if (!values.title) {
+    errors.title = "Enter a title";
+  }
+
+  if (!values.categories) {
+    errors.categories = "Enter a categories";
+  }
+
+  if (!values.content) {
+    errors.content = "Enter a content please";
+  }
+
+  return errors;
+}
+
 export default reduxForm({
+  validate: validate,
   form: 'PostsNewForm',
 })(PostsNew);
