@@ -1,19 +1,22 @@
 import axios from 'axios';
-export const FETCH_POSTS = 'fetch_posts';
-export const CREATE_POST = 'create_post';
-export const FETCH_POST = 'fetch_post';
-export const DELETE_POST = 'delete_post';
+import Firebase from 'firebase';
 
-const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
-const API_KEY = '?key=navinweb';
+import {
+  FETCH_POSTS,
+  FETCH_POST,
+  DELETE_POST,
+  CREATE_POST
+} from './types';
+
+// const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
+// const API_KEY = '?key=navinweb';
+
+// const Posts = new Firebase('https://fbredux.firebaseio.com/');
+const Posts = new Firebase('https://reactblognavinweb.firebaseio.com/');
 
 export function fetchPosts() {
-  const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+  console.log(Posts);
 
-  return {
-    type: FETCH_POSTS,
-    payload: request
-  }
 }
 
 export function createPost(values, callback) {
