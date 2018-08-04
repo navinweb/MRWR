@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Firebase from 'firebase';
+import firebase from "firebase";
 
 import {
   FETCH_POSTS,
@@ -8,15 +8,27 @@ import {
   CREATE_POST
 } from './types';
 
-// const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
-// const API_KEY = '?key=navinweb';
+var config = {
+  apiKey: "AIzaSyCLIb0UxB8a8apShSQSgbgCh_k-jKGuUGQ",
+  authDomain: "reactblognavinweb.firebaseapp.com",
+  databaseURL: "https://reactblognavinweb.firebaseio.com",
+  projectId: "reactblognavinweb",
+  storageBucket: "reactblognavinweb.appspot.com",
+  messagingSenderId: "485770789637"
+};
+firebase.initializeApp(config);
 
-// const Posts = new Firebase('https://fbredux.firebaseio.com/');
-const Posts = new Firebase('https://reactblognavinweb.firebaseio.com/');
+var Posts = firebase.database().ref('/posts/');
 
 export function fetchPosts() {
-  console.log(Posts);
-
+  return dispatch => {
+    Posts.on('value', snapshot => {
+      dispatch({
+        type: FETCH_POSTS,
+        payload: snapshot.val()
+      });
+    });
+  }
 }
 
 export function createPost(values, callback) {
