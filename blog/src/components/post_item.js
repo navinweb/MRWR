@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 class PostItem extends Component {
   render() {
-
-    if (this.props.post.title) {
+    if (this.props.post) {
       return (
         <li className="list-group-item" key={this.props.id}>
           <Link to={`/posts/${this.props.id}`}>
